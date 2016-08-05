@@ -6,13 +6,11 @@ public class PigLatinExplorerMode {
 
 	public static void main(String[] args) {
 
-		System.out.println("Xander's Elementary English to 'Latin' Translator. \n" + 
+		System.out.println("Xander's Elementary English to " +'"' +"Latin" +'"' +" Translator. \n" + 
 				"Please enter a word or phrase. \n");
 
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.nextLine();
-
-//		boolean isVowel = true;
 				
 		StringBuilder modUserInput = new StringBuilder(userInput.toLowerCase());
 		char firstLetter = modUserInput.charAt(0);
@@ -61,9 +59,11 @@ public class PigLatinExplorerMode {
 	public static String appendConsonantMthd(StringBuilder modUserInput) 
 	{
 		String PL = new String("-ay");
-		char firstLetter = modUserInput.charAt(0);
 		
-		modUserInput.append(PL);
+		char firstLetter = modUserInput.charAt(0);
+		modUserInput = modUserInput.deleteCharAt(0);
+		modUserInput = modUserInput.insert(modUserInput.length(),firstLetter + PL);
+		
 		return modUserInput.toString();
 		
 	}
